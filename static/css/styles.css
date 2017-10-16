@@ -1,0 +1,12 @@
+/*=====================================
+=            Header styles            =
+=====================================*/
+
+
+/* fix logo not centered aligned on small screen */
+@media (max-width:765px) {.navbar-brand {
+  float: left;
+  height: 55px;
+  padding: 2px 15px 10px 15px;
+}
+}

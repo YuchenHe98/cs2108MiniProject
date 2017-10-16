@@ -1277,11 +1277,9 @@ p.text-light {
     color: #282828 !important;
     background: none;
 }
-/* navigation7 */
-
-#navigation7 .navbar {
+/* navigation7 */#navigation7 .navbar {
     background: #fff;
-    padding: 0;
+    padding: 15px 0 0 0;
     border-radius: 0;
     border: 0;
     border-bottom: none;
@@ -1297,7 +1295,7 @@ p.text-light {
 }
 @media (max-width: 1000px) {
     #navigation7 .navbar-brand img {
-        height: 24px;
+        height: 45px;
     }
 }
 #navigation7 .navbar-default .navbar-toggle,
