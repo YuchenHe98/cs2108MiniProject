@@ -1,74 +1,67 @@
-<!DOCTYPE html>
-<html>
-    <head> 
-        <meta charset="utf-8"> 
-        <title>Facedate</title>         
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../static/css/bootstrap.css" rel="stylesheet"> 
-        <!-- Loading Bootstrap -->                  
-        <!-- Loading General Styles -->         
-        <link href="../static/css/cb-style.css" rel="stylesheet"> 
-        <link href="../static/css/owl.carousel.css" rel="stylesheet"> 
-        <!-- Font Awesome -->         
-        <link href="../static/css/font-awesome.min.css" rel="stylesheet"> 
-        <link rel="shortcut icon" href="../static/favicon.ico"> 
-        <!-- Font -->         
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet" type="text/css"> 
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet" type="text/css"> 
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->         
-        <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
-    <![endif]-->         
-        <link href="../static/css/styles.css" rel="stylesheet" type="text/css">
-    </head>     
-    <body> 
-        <!-- Load JS -->         
-        <script src="../static/js/jquery-1.9.1.min.js"></script>
-        <section id="cb-navigation-2-1" class="cb-navigation-block cb-navigation-2-1">
-            <div id="navigation7"> 
-                <nav class="navbar navbar-default"> 
-                    <div class="container"> 
-                        <!-- Brand and toggle get grouped for better mobile display -->                         
-                        <div class="navbar-header"> 
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-7" aria-expanded="false"> 
-                                <span class="sr-only">Toggle navigation</span> 
-                                <span class="icon-bar"></span> 
-                                <span class="icon-bar"></span> 
-                                <span class="icon-bar"></span> 
-                            </button>                             
-                            <a class="navbar-brand" href="#" style="outline: none; cursor: inherit;">
-                                <img style="outline: none; cursor: inherit;" alt="facedate logo" src="../static/logo.png" width="auto">
-                            </a>                             
-                        </div>
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-7">
-                            <ul class="nav navbar-nav"> 
-                                <li class="active">
-                                    <a href="#" style="outline: none; cursor: inherit;">Home</a>
-                                </li>                                 
-                                <li>
-                                    <a href="#" style="outline: none; cursor: inherit;">Browse</a>
-                                </li>                                 
-                            </ul>
-                            <ul class="nav navbar-nav navbar-right"> 
-                                <a href="#" class="btn btn-default-green-transparent" style="outline: none; cursor: inherit;">Start Dating</a> 
-                            </ul>                             
+{% extends "base.html" %}
+
+{% block title %}
+-- Welcome
+{% endblock %}
+
+{% block content %}
+<section id="cb-intro-2-4" class="cb-intro-block cb-intro-2-4" data-pg-collapsed>
+    <div id="intro14" style="background-image:url('http://placehold.it/1280x1280');"> 
+        <div class="overlay"></div>         
+        <div class="container"> 
+            <div class="row"> 
+                <div class="col-md-6"> 
+                    <img src="../static/header.png" alt="" style="outline: none; cursor: inherit;"> 
+                </div>                 
+                <div class="col-md-6"> 
+                    <div class="content"> 
+                        <h3 class="editContent mb20" style="outline: none; cursor: inherit;">Meet your "TYPE"</h3> 
+                        <h5 class="editContent" style="outline: none; cursor: inherit;">upload a photo</h5> 
+                        <h5 class="editContent" style="outline: none; cursor: inherit;"> <b>we figure out the rest</b></h5> 
+                        <h4 class="editContent mt40" style="outline: none; cursor: inherit;">Try it now! </h4> 
+                        <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
+                            <input type="file" name="file" accept="image/*" style="outline: none; cursor: inherit;"></input> 
+                            <input type="submit" value="upload" class="btn btn-default-orange-light"></input>
+                        </form>
+                    </div>                     
+                </div>
+            </div>             
+        </div>         
+    </div>
+</section>
+<section id="cb-service-1-3" class="cb-service-block cb-service-1-3" data-pg-collapsed>
+    <div id="services3"> 
+        <div class="container"> 
+            <div class="row"> 
+                <div class="col-md-4"> 
+                    <div class="services-box">
+                        <div class="icon"> 
+                            <i class="fa fa-2x fa-black fa-heart"></i> 
                         </div>                         
-                        <!-- Collect the nav links, forms, and other content for toggling -->                         
-                        <!-- /.navbar-collapse -->                         
-                    </div>
-                    <!-- /.container -->                     
-                </nav>                 
-            </div>
-        </section>
-        <div class="container"></div>         
-        <script src="../static/js/bootstrap.min.js"></script>         
-        <script src="../static/js/cb-main.js"></script>
-        <script src="../static/js/jquery.touchSwipe.js"></script>         
-        <script src="../static/js/owl.carousel.min.js"></script>         
-        <script src="../static/js/jquery.easy-pie-chart.js"></script>         
-    </body>
-    <meta name="description" content="No more swiping, no more time wasting. Facedate is an revolutional dating service that matches YOUR TYPE.">
-    <meta name="keywords" content="dating, relationship,matcher,face match,dating app,facedate,fast match,quick match">
-    <meta name="author" content>
-</html>
+                        <h3 class="editContent" style="outline: none; cursor: inherit;">Lorem</h3> 
+                        <p class="editContent" style="outline: none; cursor: inherit;">loremWe put a lot of effort into providing top-notch customer support. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
+                    </div>                     
+                </div>
+                <div class="col-md-4"> 
+                    <div class="services-box"> 
+                        <div class="icon"> 
+                            <i class="fa fa-2x fa-black fa-heart"></i> 
+                        </div>                         
+                        <h3 class="editContent" style="outline: none; cursor: inherit;">Lorem</h3> 
+                        <p class="editContent" style="outline: none; cursor: inherit;">We put a lot of effort into providing top-notch customer support. It has survived not only five centuries, but also the leap into electronic typesetting.</p> 
+                    </div>                     
+                </div>
+                <div class="col-md-4"> 
+                    <div class="services-box"> 
+                        <div class="icon"> 
+                            <i class="fa fa-2x fa-black fa-heart"></i> 
+                        </div>                         
+                        <h3 class="editContent" style="outline: none; cursor: inherit;">Lorem</h3> 
+                        <p class="editContent" style="outline: none; cursor: inherit;">We put a lot of effort into providing top-notch customer support. It has survived not only five centuries, but also the leap into electronic typesetting.</p> 
+                    </div>                     
+                </div>                 
+            </div>             
+        </div>         
+    </div>     
+</section>
+{% endblock %}
