@@ -2,7 +2,7 @@ from collections import OrderedDict
 import face_recognition
 import os
 
-def get_matched_result():
+def get_picture_result():
     all_pictures = os.listdir("profile_pictures/females")
     all_pictures.pop(0)
     
@@ -25,6 +25,11 @@ def get_matched_result():
     sorted_dict = OrderedDict(sorted(pic_dict.items(), key=lambda x: x[1]))
     top_indices = list(sorted_dict.keys())[:10]
     return top_indices
+
+
+def get_text_results(indices):
+    
+    
 
     
     
