@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 from process import get_matched_results
 import models
+from get_match import get_matched_result
 
 
 APP_ROOT =  os.path.dirname(os.path.abspath(__file__))
@@ -45,7 +46,9 @@ def upload():
             file.save(destination)
 
         # run matching and return matched results
-        matched_profile_ids = get_matched_results(file)
+        matched_profile_ids = get_matched_results()
+        
+        print(matched_profile_ids)
 
         # for each id in matched id, get the profile object from db by id
         matched_profiles = [ models.Profile.query.get(id) for id in matched_profile_ids]
