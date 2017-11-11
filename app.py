@@ -20,7 +20,7 @@ db = SQLAlchemy(app)
 @app.route('/')
 
 def index():
-  return render_template('index.html')
+    return render_template('index.html')
 
 @app.route('/upload', methods=['POST'])
 def upload():
@@ -53,4 +53,4 @@ def upload():
         return render_template('show.html', profiles = matched_profiles)
 
 if __name__ == "__main__":
-  app.run()
+    app.run()
