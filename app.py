@@ -46,15 +46,12 @@ def upload():
             file.save(destination)
 
         # run matching and return matched results
-        matched_pictures_ids = get_picture_results()
+        matched_profile_ids = get_matched_results()
+        
+        print(matched_profile_ids)
 
         # for each id in matched id, get the profile object from db by id
-        matched_people_ids_first_step = [ models.Profile.query.get(description) for ids in matched_pictures_ids]
-        
-        matched_people_descriptions = [ models.Profile.query.get(description) for ids in matched_pictures_ids]
-        
-        matched_people
-        
+        matched_profiles = [ models.Profile.query.get(id) for id in matched_profile_ids]
 
         return render_template('show.html', profiles = matched_profiles)
 
