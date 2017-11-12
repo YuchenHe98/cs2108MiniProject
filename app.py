@@ -15,6 +15,8 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['PROFILE_PIC_LOCATION'] = os.path.join(APP_ROOT, 'profile_pictures')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(APP_ROOT, 'database.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.secret_key = os.urandom(24)
+
 db = SQLAlchemy(app)
 
 
