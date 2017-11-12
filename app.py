@@ -27,6 +27,42 @@ def index():
 def display_profile(filename):
     return send_from_directory(app.config['PROFILE_PIC_LOCATION'], filename, as_attachment=False)
 
+@app.route('/create', methods=["GET", "POST"])
+def create_profile():
+    if request.method == 'GET':
+        return render_template('create.html')
+    elif request.method == 'POST':
+        # create new record
+        name = request.form.get('name')
+        email = request.form.get('email')
+        gender = request.form.get('gender')
+        description = request.form.get('description')
+        age = request.form.get('age')
+        file = request.files['file']
+
+        # create a new profile object
+        new_profile = models.Profile(name = name, gender = gender, age = age, email = email, description=description)
+        db.session.add(new_profile)
+        # try to insert if failed ignore the rest
+        insert_sucess = True
+        try:
+            db.session.commit()
+        except Exception as e:
+            db.session.rollback()
+            db.session.flush()
+            insert_sucess = False
+
+        if insert_sucess == True:
+            # get last inserted ld
+            user_id = new_profile.id
+            # save file
+            filename = str(user_id) + ".jpg"
+            profile_folder_name = "males" if gender == "M" else "females"
+            save_path = os.path.join(app.config['PROFILE_PIC_LOCATION'], profile_folder_name, filename)
+            file.save(save_path)
+            flash("Profile created successfully.")
+            return redirect("index")
+
 @app.route('/upload', methods=['POST'])
 def upload():
     if request.method == 'POST':
