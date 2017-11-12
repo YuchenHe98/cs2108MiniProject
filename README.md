@@ -16,6 +16,12 @@ conda install -c anaconda flask
 conda install -c conda-forge flask-sqlalchemy 
 ```
 
+## Install face_recognition library
+```
+conda install boost
+pip install face_recognition
+```
+
 ## How to regenerate test data
 1. open database.db using a sqlite tool
 2. copy everything inside seedAll.sql 
