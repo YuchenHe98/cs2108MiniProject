@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+-- Matched results
+{% endblock %}
+
+{% block content %}
+    {% for profile in profiles %}
+        <h1>Name: {{ profile.name }}</h1>
+        <h1>Gender: {{ profile.gender }}</h1>
+        <p>Description: {{ profile.description }}</p>
+        
+        <hr>
+    {% endfor %}
+{% endblock %}
