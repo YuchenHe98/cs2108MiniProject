@@ -10,3 +10,24 @@
   padding: 2px 15px 10px 15px;
 }
 }
+
+
+.text-primary {
+    color: #2FB2FF;
+}
+
+.text-secondary {
+    color: #1b80db;
+}
+
+.padded {
+    margin: 30px;
+    padding: 10px 0;
+}#pageloginregister1 .form-control {
+    background-color: #fff;
+    border: 1px solid #2fb2ff;
+    width: 100%;
+    border-radius: 2px;
+    margin: 0 auto;
+    color: #282828;
+}
