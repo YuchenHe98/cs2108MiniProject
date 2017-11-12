@@ -16,9 +16,15 @@ conda install -c anaconda flask
 conda install -c conda-forge flask-sqlalchemy 
 ```
 
+## How to regenerate test data
+1. open database.db using a sqlite tool
+2. copy everything inside seedAll.sql 
+3. paste under 'query'
+
 ## How to run 
 ``` bash
 # type inside terminal 
 python app.py
 # and then open browser at http://127.0.0.1:5000/, make sure that port is not being used
 ```
+
