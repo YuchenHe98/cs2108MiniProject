@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, redirect, flash, render_template, url_for
+from flask import Flask, request, redirect, flash, render_template, url_for,send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 from process import get_matched_results
@@ -12,6 +12,7 @@ UPLOAD_FOLDER = os.path.join(APP_ROOT, "temp_upload/")
 app = Flask(__name__)
 app.config['APP_ROOT'] = APP_ROOT
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['PROFILE_PIC_LOCATION'] = os.path.join(APP_ROOT, 'profile_pictures')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(APP_ROOT, 'database.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -21,6 +22,10 @@ db = SQLAlchemy(app)
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/profile_pic/<path:filename>')
+def display_profile(filename):
+    return send_from_directory(app.config['PROFILE_PIC_LOCATION'], filename, as_attachment=False)
 
 @app.route('/upload', methods=['POST'])
 def upload():
@@ -55,10 +60,19 @@ def upload():
         
         print(matched_profile_ids)
 
+        # display results
+
         # for each id in matched id, get the profile object from db by id
         matched_profiles = [ models.Profile.query.get(id) for id in matched_profile_ids]
 
-        return render_template('show.html', profiles = matched_profiles)
+
+        profile_folder_name = "males" if gender == "M" else "females"
+
+        return render_template (
+         'show.html',
+          profiles      = matched_profiles,
+          pic_folder    = profile_folder_name
+        )
 
 if __name__ == "__main__":
     app.run()

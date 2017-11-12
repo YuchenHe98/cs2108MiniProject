@@ -8,6 +8,9 @@
     {% for profile in profiles %}
         <h1>Name: {{ profile.name }}</h1>
         <h1>Gender: {{ profile.gender }}</h1>
+        <h1>Age : {{ profile.age }}</h1>
+        <h1>Email: {{ profile.email}}</h1>
+        <img src="{{ url_for('display_profile', filename = pic_folder)}}/{{profile.id}}.jpg" alt="">
         <p>Description: {{ profile.description }}</p>
         
         <hr>
