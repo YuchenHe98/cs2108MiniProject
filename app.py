@@ -47,11 +47,9 @@ def upload():
         gender = request.form.get('gender')
         description = request.form.get('description')
 
-        print(gender)
-        print(description)
 
         # run matching and return matched results
-        matched_profile_ids = get_matched_results()
+        matched_profile_ids = get_matched_results(gender, description)
         
         print(matched_profile_ids)
 
