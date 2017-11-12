@@ -27,9 +27,4 @@ def get_picture_result():
     return top_indices
 
 
-def get_text_results(indices):
-    
-    
-
-    
-    
+# def get_text_results(indices):
