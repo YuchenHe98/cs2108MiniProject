@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 from process import get_matched_results
 import models
-from get_match import get_matched_result
+from process import get_matched_results
 
 
 APP_ROOT =  os.path.dirname(os.path.abspath(__file__))
@@ -19,7 +19,6 @@ db = SQLAlchemy(app)
 
 @app.route('/index')
 @app.route('/')
-
 def index():
     return render_template('index.html')
 
@@ -44,6 +43,12 @@ def upload():
             filename = secure_filename('temp.jpg')
             destination = "/".join([app.config['UPLOAD_FOLDER'], filename])
             file.save(destination)
+
+        gender = request.form.get('gender')
+        description = request.form.get('description')
+
+        print(gender)
+        print(description)
 
         # run matching and return matched results
         matched_profile_ids = get_matched_results()
