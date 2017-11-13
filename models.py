@@ -3,7 +3,7 @@ from datetime import datetime
 
 
 class Profile(db.Model):
-    ids = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80))
     gender = db.Column(db.String(1))
     age = db.Column(db.Integer())

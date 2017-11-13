@@ -164,5 +164,3 @@ def tokenize_text(docs):
     return stems
 
 
-
-get_matched_results('M', 'A PIECE OF SHIT')
