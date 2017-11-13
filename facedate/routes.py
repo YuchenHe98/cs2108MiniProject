@@ -1,24 +1,9 @@
 import os
 from flask import Flask, request, redirect, flash, render_template, url_for,send_from_directory
-from flask_sqlalchemy import SQLAlchemy
+from app import app, db
+from models import Profile
+from process import get_matched_results
 from werkzeug.utils import secure_filename
-from process import get_matched_results
-import models
-from process import get_matched_results
-
-
-APP_ROOT =  os.path.dirname(os.path.abspath(__file__))
-UPLOAD_FOLDER = os.path.join(APP_ROOT, "temp_upload/")
-app = Flask(__name__)
-app.config['APP_ROOT'] = APP_ROOT
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['PROFILE_PIC_LOCATION'] = os.path.join(APP_ROOT, 'profile_pictures')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(APP_ROOT, 'database.db')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.secret_key = os.urandom(24)
-
-db = SQLAlchemy(app)
-
 
 @app.route('/index')
 @app.route('/')
@@ -43,7 +28,7 @@ def create_profile():
         file = request.files['file']
 
         # create a new profile object
-        new_profile = models.Profile(name = name, gender = gender, age = age, email = email, description=description)
+        new_profile = Profile(name = name, gender = gender, age = age, email = email, description=description)
         db.session.add(new_profile)
         # try to insert if failed ignore the rest
         insert_sucess = True
@@ -97,7 +82,7 @@ def upload():
         # display results
 
         # for each id in matched id, get the profile object from db by id
-        matched_profiles = [ models.Profile.query.get(id) for id in matched_profile_ids]
+        matched_profiles = [ Profile.query.get(id) for id in matched_profile_ids]
 
 
         profile_folder_name = "males" if gender == "M" else "females"
@@ -107,6 +92,3 @@ def upload():
           profiles      = matched_profiles,
           pic_folder    = profile_folder_name
         )
-
-if __name__ == "__main__":
-    app.run()

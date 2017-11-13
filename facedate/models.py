@@ -1,6 +1,5 @@
-from app import db
+from database import db
 from datetime import datetime
-
 
 class Profile(db.Model):
     id = db.Column(db.Integer, primary_key=True)

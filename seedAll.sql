@@ -1,4 +1,4 @@
-DELETE FROM profile
+DELETE FROM profile;
 insert into profile (id, name, gender, age, email, description) values (1, 'Trula', 'F', 25, 'tgrasha0@nationalgeographic.com', 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 
 Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
