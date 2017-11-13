@@ -35,13 +35,10 @@ def get_matched_results(gender, description):
         face_distance = face_recognition.face_distance(encoding, image_to_test_encoding)
         if len(face_distance) != 0:
             pic_dict[int(picture.replace('.jpg', ''))] = face_distance[0]
-        print(face_distance)
-        print("this is for",picture)
         
     #extract top 10 indices
     sorted_dict = OrderedDict(sorted(pic_dict.items(), key=lambda x: x[1]))
     top_indices = list(sorted_dict.keys())[:10]
-    print(top_indices)
     return get_text_match(gender, description, top_indices)
 
 def get_text_match(gender, description, top_indices):
@@ -49,7 +46,6 @@ def get_text_match(gender, description, top_indices):
  
     # create a database connection
     conn = create_connection(database)
-    print(top_indices)
     with conn:
         texts = []
         if(gender == 'M'):
