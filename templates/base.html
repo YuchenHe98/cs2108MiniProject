@@ -47,7 +47,7 @@
                                     <a href="{{ url_for('index') }}" style="outline: none; cursor: inherit;">Home</a>
                                 </li>                                 
                                 <li>
-                                    <a href="#" style="outline: none; cursor: inherit;">Browse</a>
+                                    <a href="{{ url_for('create_profile') }}" style="outline: none; cursor: inherit;">Add new profile (Demo)</a>
                                 </li>                                 
                             </ul>
                             <ul class="nav navbar-nav navbar-right"> 
@@ -65,7 +65,7 @@
             <div> 
                 {% block content %}
                 {% endblock %}
-            </div>
+</div>
         </div>         
         <section id="cb-footer-1-2" class="cb-footer-block cb-footer-1-2">
             <div id="footer2"> 

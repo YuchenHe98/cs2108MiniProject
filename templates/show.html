@@ -5,11 +5,18 @@
 {% endblock %}
 
 {% block content %}
-    {% for profile in profiles %}
-        <h1>Name: {{ profile.name }}</h1>
-        <h1>Gender: {{ profile.gender }}</h1>
-        <p>Description: {{ profile.description }}</p>
-        
-        <hr>
-    {% endfor %}
+    <div class="padded container">
+        {% for profile in profiles %}
+            <img class="img-circle" width="150" src="{{ url_for('display_profile', filename=pic_folder)}}/{{profile.id}}.jpg" alt="">
+            <h4>Name: {{ profile.name }}</h4>
+            <h4>Gender: {{ profile.gender }}</h4>
+            <h4>Age : {{ profile.age }}</h4>
+            <h4>Email: {{ profile.email}}</h4>
+            <p>Description: {{ profile.description }}</p>
+            <button type="" class="btn-default-orange-light">Match</button>
+            <button type="" class="btn-default-green-tiny">Reject</button>
+            <hr>
+        {% endfor %}        
+    </div>
+
 {% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}
+-- Matched results
+{% endblock %}
+
+{% block content %}
+
+<section id="cb-form-1-3" class="cb-form-block cb-form-1-3" data-pg-collapsed>
+    <div id="pageloginregister1"> 
+        <div class="container"> 
+            <div class="row"> 
+                <div class="col-sm-12"> 
+                    <div class="lr-box"> 
+                        <h4 class="text-uppercase editContent" style="outline: none; cursor: inherit;">Create profile</h4> 
+                        <form action="{{ url_for('create_profile') }}" method="post" id="form_create" enctype="multipart/form-data"> 
+                            <p class="dark editContent" style="outline: none; cursor: inherit;">Name</p> 
+                            <input type="name" name="name" class="form-control" placeholder="Enter your name" required>
+                            <br> 
+
+                            
+                            <p class="dark editContent" style="outline: none; cursor: inherit;">Email address</p> 
+                            <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+                            <br> 
+
+
+                            <p class="dark editContent" style="outline: none; cursor: inherit;">Gender</p> 
+                            <div class="form-group">
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender" value="M" checked>Male
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender" value="F">Female
+                                </label>
+                            </div>
+
+
+                            <p class="dark editContent" style="outline: none; cursor: inherit;">Age</p> 
+                            <input type="number" name="age" class="form-control" required="">
+                            <br> 
+
+                            <p class="dark editContent" style="outline: none; cursor: inherit;">Upload a photo of yourself</p> 
+                            <div class="form-group">
+                                <input type="file" class="form-control" name="file" accept="image/*" style="outline: none; cursor: inherit;">
+                            </div>
+                            <br>
+
+                            <p class="dark editContent" style="outline: none; cursor: inherit;">Description</p> 
+                            <textarea name="description" placeholder="Please tell us more about yourself. Remember the more details you write, the better your next date can find you" class="form-control"></textarea>
+                            <br>                             
+
+                            <input type="submit" class="btn btn-default-green editContent" value="Submit"> 
+                        </form>                         
+                    </div>                     
+                </div>                 
+            </div>             
+        </div>         
+    </div>     
+</section>
+
+{% endblock %}
