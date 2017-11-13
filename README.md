@@ -1,8 +1,10 @@
 # cs2108MiniProject
+
 ## Requirements
 1. Python 3
 2. Anaconda installed with default env(root) https://www.anaconda.com/download
 3. flask-sqlalchemy
+4. others: nltk, sklearn, numpy ... (packages used in lab 2 image retrieval)
 
 ## Install flask if it is not already installed
 ``` bash
@@ -29,8 +31,12 @@ pip install face_recognition
 
 ## How to run 
 ``` bash
-# type inside terminal 
-python app.py
+# type inside terminal
+export FLASK_APP=app.py
+flask run
 # and then open browser at http://127.0.0.1:5000/, make sure that port is not being used
 ```
 
+
+## Common issues
+1. session secret key not set -> solution = clear browser cache and try again
