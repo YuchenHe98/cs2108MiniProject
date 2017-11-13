@@ -1,5 +1,6 @@
 import os
 from flask import Flask
+from werkzeug.utils import secure_filename
 from database import db
 
 APP_ROOT =  os.path.dirname(os.path.abspath(__file__))
@@ -14,6 +15,7 @@ app.secret_key = os.urandom(24)
 
 db.init_app(app)
 
+import models
 import routes
 
 if __name__ == "__main__":
