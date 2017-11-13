@@ -60,7 +60,8 @@ def get_text_match(gender, description, top_indices):
                 texts.append(select_female_texts(conn, index)[0][0])
     text_dict = {}
     current = 0
-    for index in top_indices:
+    reversed_top_indices = top_indices[::-1]
+    for index in reversed_top_indices:
         text_dict[index] = sim(description, texts)[current][0]
         current = current + 1
     sorted_dict = OrderedDict(sorted(text_dict.items(), key=lambda x: x[1]))
