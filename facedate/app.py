@@ -1,6 +1,5 @@
 import os
 from flask import Flask
-from werkzeug.utils import secure_filename
 from database import db
 
 APP_ROOT =  os.path.dirname(os.path.abspath(__file__))
